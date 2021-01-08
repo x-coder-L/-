@@ -1,0 +1,66 @@
+/**
+ * Copyright (c) 2013-Now http://jeesite.com All rights reserved.
+ */
+package com.jeesite.modules.t.entity;
+
+import org.hibernate.validator.constraints.Length;
+
+import com.jeesite.common.entity.DataEntity;
+import com.jeesite.common.mybatis.annotation.Column;
+import com.jeesite.common.mybatis.annotation.Table;
+import com.jeesite.common.mybatis.mapper.query.QueryType;
+
+/**
+ * t_adminEntity
+ * @author LX
+ * @version 2021-01-08
+ */
+@Table(name="t_admin", alias="a", columns={
+		@Column(name="userid", attrName="userid.userid", label="userid", isPK=true),
+		@Column(name="username", attrName="username", label="username"),
+		@Column(name="userpw", attrName="userpw", label="userpw"),
+	}, orderBy="a.userid ASC"
+)
+public class Tadmin extends DataEntity<Tadmin> {
+	
+	private static final long serialVersionUID = 1L;
+	private Tadmin userid;		// userid 父类
+	private String username;		// username
+	private String userpw;		// userpw
+	
+	public Tadmin() {
+		this(null);
+	}
+
+
+	public Tadmin(Tadmin userid){
+		this.userid = userid;
+	}
+	
+	public Tadmin getUserid() {
+		return userid;
+	}
+
+	public void setUserid(Tadmin userid) {
+		this.userid = userid;
+	}
+	
+	@Length(min=0, max=55, message="username长度不能超过 55 个字符")
+	public String getUsername() {
+		return username;
+	}
+
+	public void setUsername(String username) {
+		this.username = username;
+	}
+	
+	@Length(min=0, max=50, message="userpw长度不能超过 50 个字符")
+	public String getUserpw() {
+		return userpw;
+	}
+
+	public void setUserpw(String userpw) {
+		this.userpw = userpw;
+	}
+	
+}

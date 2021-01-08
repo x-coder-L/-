@@ -1,0 +1,76 @@
+/**
+ * Copyright (c) 2013-Now http://jeesite.com All rights reserved.
+ */
+package com.jeesite.modules.t.service;
+
+import java.util.List;
+
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+
+import com.jeesite.common.entity.Page;
+import com.jeesite.common.service.CrudService;
+import com.jeesite.modules.t.entity.Tadmin;
+import com.jeesite.modules.t.dao.TadminDao;
+
+/**
+ * t_adminService
+ * @author LX
+ * @version 2021-01-08
+ */
+@Service
+@Transactional(readOnly=true)
+public class TadminService extends CrudService<TadminDao, Tadmin> {
+	
+	/**
+	 * 获取单条数据
+	 * @param tadmin
+	 * @return
+	 */
+	@Override
+	public Tadmin get(Tadmin tadmin) {
+		return super.get(tadmin);
+	}
+	
+	/**
+	 * 查询分页数据
+	 * @param tadmin 查询条件
+	 * @param tadmin.page 分页对象
+	 * @return
+	 */
+	@Override
+	public Page<Tadmin> findPage(Tadmin tadmin) {
+		return super.findPage(tadmin);
+	}
+	
+	/**
+	 * 保存数据（插入或更新）
+	 * @param tadmin
+	 */
+	@Override
+	@Transactional(readOnly=false)
+	public void save(Tadmin tadmin) {
+		super.save(tadmin);
+	}
+	
+	/**
+	 * 更新状态
+	 * @param tadmin
+	 */
+	@Override
+	@Transactional(readOnly=false)
+	public void updateStatus(Tadmin tadmin) {
+		super.updateStatus(tadmin);
+	}
+	
+	/**
+	 * 删除数据
+	 * @param tadmin
+	 */
+	@Override
+	@Transactional(readOnly=false)
+	public void delete(Tadmin tadmin) {
+		super.delete(tadmin);
+	}
+	
+}

@@ -1,0 +1,99 @@
+/**
+ * Copyright (c) 2013-Now http://jeesite.com All rights reserved.
+ */
+package com.jeesite.modules.t.web;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+import org.apache.shiro.authz.annotation.RequiresPermissions;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.validation.annotation.Validated;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
+
+import com.jeesite.common.config.Global;
+import com.jeesite.common.entity.Page;
+import com.jeesite.common.web.BaseController;
+import com.jeesite.modules.t.entity.Tadmin;
+import com.jeesite.modules.t.service.TadminService;
+
+/**
+ * t_adminController
+ * @author LX
+ * @version 2021-01-08
+ */
+@Controller
+@RequestMapping(value = "${adminPath}/t/tadmin")
+public class TadminController extends BaseController {
+
+	@Autowired
+	private TadminService tadminService;
+	
+	/**
+	 * 获取数据
+	 */
+	@ModelAttribute
+	public Tadmin get(Long userid, boolean isNewRecord) {
+		return tadminService.get(userid, isNewRecord);
+	}
+	
+	/**
+	 * 查询列表
+	 */
+	@RequiresPermissions("t:tadmin:view")
+	@RequestMapping(value = {"list", ""})
+	public String list(Tadmin tadmin, Model model) {
+		model.addAttribute("tadmin", tadmin);
+		return "modules/t/tadminList";
+	}
+	
+	/**
+	 * 查询列表数据
+	 */
+	@RequiresPermissions("t:tadmin:view")
+	@RequestMapping(value = "listData")
+	@ResponseBody
+	public Page<Tadmin> listData(Tadmin tadmin, HttpServletRequest request, HttpServletResponse response) {
+		tadmin.setPage(new Page<>(request, response));
+		Page<Tadmin> page = tadminService.findPage(tadmin);
+		return page;
+	}
+
+	/**
+	 * 查看编辑表单
+	 */
+	@RequiresPermissions("t:tadmin:view")
+	@RequestMapping(value = "form")
+	public String form(Tadmin tadmin, Model model) {
+		model.addAttribute("tadmin", tadmin);
+		return "modules/t/tadminForm";
+	}
+
+	/**
+	 * 保存数据
+	 */
+	@RequiresPermissions("t:tadmin:edit")
+	@PostMapping(value = "save")
+	@ResponseBody
+	public String save(@Validated Tadmin tadmin) {
+		tadminService.save(tadmin);
+		return renderResult(Global.TRUE, text("保存t_admin成功！"));
+	}
+	
+	/**
+	 * 删除数据
+	 */
+	@RequiresPermissions("t:tadmin:edit")
+	@RequestMapping(value = "delete")
+	@ResponseBody
+	public String delete(Tadmin tadmin) {
+		tadminService.delete(tadmin);
+		return renderResult(Global.TRUE, text("删除t_admin成功！"));
+	}
+	
+}
