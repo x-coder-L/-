@@ -1,0 +1,285 @@
+<% layout('/layouts/default.html', {title: '', bodyClass: ''}){ %>
+<!-- <link rel="stylesheet" href="${ctxStatic}/modules/sys/sysDesktop.css?${_version}"> -->
+<div class="content pb0">
+	<div class="row">
+		<div class="col-md-3 col-sm-6 col-xs-12">
+			<div class="info-box">
+				<span class="info-box-icon bg-aqua"><i class="fa fa-cog"></i></span>
+				<div class="info-box-content">
+					<span class="info-box-text">出勤率</span>
+					<span class="info-box-number">90<small>%</small></span>
+				</div>
+			</div>
+		</div>
+		<div class="col-md-3 col-sm-6 col-xs-12">
+			<div class="info-box">
+				<span class="info-box-icon bg-red"><i class="fa fa-users"></i></span>
+				<div class="info-box-content">
+					<span class="info-box-text">总员工数</span>
+					<span class="info-box-number">41,410</span>
+				</div>
+			</div>
+		</div>
+		<div class="clearfix visible-sm-block"></div>
+		<div class="col-md-3 col-sm-6 col-xs-12">
+			<div class="info-box">
+				<span class="info-box-icon bg-green"><i class="fa fa-users"></i></span>
+				<div class="info-box-content">
+					<span class="info-box-text">部门领导</span>
+					<span class="info-box-number">760</span>
+				</div>
+			</div>
+		</div>
+		<div class="col-md-3 col-sm-6 col-xs-12">
+			<div class="info-box">
+				<span class="info-box-icon bg-yellow"><i class="fa fa-users"></i></span>
+
+				<div class="info-box-content">
+					<span class="info-box-text">实习生</span>
+					<span class="info-box-number">2,000</span>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="row">
+		<section class="col-md-12 ui-sortable">
+			<div class="box box-widget">
+				<div class="box-header with-border">
+					<h3 class="box-title">月度报告</h3>
+					<div class="box-tools pull-right">
+						<button type="button" class="btn btn-box-tool" data-widget="collapse">
+							<i class="fa fa-minus"></i>
+						</button>
+						<div class="btn-group">
+							<button type="button" class="btn btn-box-tool dropdown-toggle" data-toggle="dropdown">
+								<i class="fa fa-wrench"></i></button>
+							<ul class="dropdown-menu" role="menu">
+								<li><a href="#">导出Excel</a></li>
+								<li><a href="#">导出Word</a></li>
+								<li class="divider"></li>
+								<li><a href="#">基本设置</a></li>
+							</ul>
+						</div>
+						<button type="button" class="btn btn-box-tool" data-widget="remove">
+							<i class="fa fa-times"></i>
+						</button>
+					</div>
+				</div>
+				<div class="box-body">
+					<div class="row">
+						<div class="col-md-8">
+							<div class="chart">
+								<div id="myChart" style="height:230px;width:100%"></div><script>
+									$(function(){
+										myChart1 = echarts.init(document.getElementById('myChart'), 'default');
+										myChart1.setOption({
+										    title : {
+										        text: js.formatDate(new Date(), 'yyyy-MM')
+										    },
+										    tooltip : {
+										        trigger: 'axis'
+										    },
+										    legend: {
+										        data:['出勤','请假','实习']
+										    },
+										    toolbox: {
+										        show : true,
+										        feature : {
+										            mark : {show: true},
+										            dataView : {show: true, readOnly: false},
+										            magicType : {show: true, type: ['line', 'bar', 'stack', 'tiled']},
+										            restore : {show: true},
+										            saveAsImage : {show: true}
+										        }
+										    },
+										    calculable : true,
+										    grid : {
+										    	top: '49',
+										    	right: '20',
+										    	bottom: '30'
+										    },
+										    xAxis : [
+										        {
+										            type : 'category',
+										            boundaryGap : false,
+										            data : ['周一','周二','周三','周四','周五','周六','周日']
+										        }
+										    ],
+										    yAxis : [
+										        {
+										            type : 'value'
+										        }
+										    ],
+										    //color: ['#FAD860','#F3A43B','#60C0DD','#C6E579'],
+										    series : [
+										        {
+										            name:'出勤',
+										            type:'line',
+										            smooth:true,
+										            itemStyle: {normal: {areaStyle: {type: 'default'}}},
+										            data:[10, 12, 21, 54, 260, 830, 710]
+										        },
+										        {
+										            name:'请假',
+										            type:'line',
+										            smooth:true,
+										            itemStyle: {normal: {areaStyle: {type: 'default'}}},
+										            data:[30, 182, 434, 791, 390, 30, 10]
+										        },
+										        {
+										            name:'实习',
+										            type:'line',
+										            smooth:true,
+										            itemStyle: {normal: {areaStyle: {type: 'default'}}},
+										            data:[1320, 1132, 601, 234, 120, 90, 20]
+										        }
+										     ]
+										});
+									});
+								</script>
+							</div>
+						</div>
+						
+						</div>
+					</div>
+				</div>
+				<div class="box-footer">
+					<div class="row">
+						<div class="col-sm-3 col-xs-6">
+							<div class="description-block border-right">
+								<span class="description-percentage text-green"><i class="fa fa-caret-up"></i> 17%</span>
+								<h5 class="description-header">￥35,210.43</h5>
+								<span class="description-text">工资总支出</span>
+							</div>
+						</div>
+						<div class="col-sm-3 col-xs-6">
+							<div class="description-block border-right">
+								<span class="description-percentage text-yellow"><i class="fa fa-caret-left"></i> 0%</span>
+								<h5 class="description-header">￥10,390.90</h5>
+								<span class="description-text">奖金发放</span>
+							</div>
+						</div>
+						<div class="col-sm-3 col-xs-6">
+							<div class="description-block border-right">
+								<span class="description-percentage text-green"><i class="fa fa-caret-up"></i> 20%</span>
+								<h5 class="description-header">￥24,813.53</h5>
+								<span class="description-text">基本工资发放</span>
+							</div>
+						</div>
+						<div class="col-sm-3 col-xs-6">
+							<div class="description-block">
+								<span class="description-percentage text-red"><i class="fa fa-caret-down"></i> 18%</span>
+								<h5 class="description-header">1200</h5>
+								<span class="description-text">目标完成</span>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+        <section class="col-md-7 ui-sortable">
+        
+          <!-- Calendar -->
+          <div class="box box-solid bg-green-gradient">
+            <div class="box-header">
+              <i class="fa fa-calendar"></i>
+              <h3 class="box-title">日程表</h3>
+              <!-- tools box -->
+              <div class="pull-right box-tools">
+                <!-- button with a dropdown -->
+                <div class="btn-group">
+                  <button type="button" class="btn btn-success btn-sm dropdown-toggle" data-toggle="dropdown">
+                    <i class="fa fa-bars"></i></button>
+                  <ul class="dropdown-menu pull-right" role="menu">
+                    <li><a href="#">Add new event</a></li>
+                    <li><a href="#">Clear events</a></li>
+                    <li class="divider"></li>
+                    <li><a href="#">View calendar</a></li>
+                  </ul>
+                </div>
+                <button type="button" class="btn btn-success btn-sm" data-widget="collapse"><i class="fa fa-minus"></i>
+                </button>
+                <button type="button" class="btn btn-success btn-sm" data-widget="remove"><i class="fa fa-times"></i>
+                </button>
+              </div>
+              <!-- /. tools -->
+            </div>
+            <!-- /.box-header -->
+            <div class="box-body no-padding">
+              <!--The calendar --><style>#calendar th, #calendar td{text-align:center;} #calendar .old.day, #calendar .new.day{color:#ddd}</style>
+              <div id="calendar" style="width: 100%"><div class="datepicker datepicker-inline"><div class="datepicker-days" style=""><table class="table-condensed"><thead><tr><th colspan="7" class="datepicker-title" style="display: none;"></th></tr><tr><th class="prev">«</th><th colspan="5" class="datepicker-switch" style="text-align:center">2019 年 7 月</th><th class="next">»</th></tr><tr><th class="dow">日</th><th class="dow">一</th><th class="dow">二</th><th class="dow">三</th><th class="dow">四</th><th class="dow">五</th><th class="dow">六</th></tr></thead><tbody><tr><td class="old day" data-date="1561852800000">30</td><td class="day" data-date="1561939200000">1</td><td class="day" data-date="1562025600000">2</td><td class="day" data-date="1562112000000">3</td><td class="day" data-date="1562198400000">4</td><td class="day" data-date="1562284800000">5</td><td class="day" data-date="1562371200000">6</td></tr><tr><td class="day" data-date="1562457600000">7</td><td class="day" data-date="1562544000000">8</td><td class="day" data-date="1562630400000">9</td><td class="day" data-date="1562716800000">10</td><td class="day" data-date="1562803200000">11</td><td class="day" data-date="1562889600000">12</td><td class="day" data-date="1562976000000">13</td></tr><tr><td class="day" data-date="1563062400000">14</td><td class="day" data-date="1563148800000">15</td><td class="day" data-date="1563235200000">16</td><td class="day" data-date="1563321600000">17</td><td class="day" data-date="1563408000000">18</td><td class="day" data-date="1563494400000">19</td><td class="day" data-date="1563580800000">20</td></tr><tr><td class="day" data-date="1563667200000">21</td><td class="day" data-date="1563753600000">22</td><td class="day" data-date="1563840000000">23</td><td class="day" data-date="1563926400000">24</td><td class="day" data-date="1564012800000">25</td><td class="day" data-date="1564099200000">26</td><td class="day" data-date="1564185600000">27</td></tr><tr><td class="day" data-date="1564272000000">28</td><td class="day" data-date="1564358400000">29</td><td class="day" data-date="1564444800000">30</td><td class="day" data-date="1564531200000">31</td><td class="new day" data-date="1564617600000">1</td><td class="new day" data-date="1564704000000">2</td><td class="new day" data-date="1564790400000">3</td></tr><tr><td class="new day" data-date="1564876800000">4</td><td class="new day" data-date="1564963200000">5</td><td class="new day" data-date="1565049600000">6</td><td class="new day" data-date="1565136000000">7</td><td class="new day" data-date="1565222400000">8</td><td class="new day" data-date="1565308800000">9</td><td class="new day" data-date="1565395200000">10</td></tr></tbody><tfoot><tr><th colspan="7" class="today" style="display: none;">Today</th></tr><tr><th colspan="7" class="clear" style="display: none;">Clear</th></tr></tfoot></table></div><div class="datepicker-months" style="display: none;"><table class="table-condensed"><thead><tr><th colspan="7" class="datepicker-title" style="display: none;"></th></tr><tr><th class="prev">«</th><th colspan="5" class="datepicker-switch">2019</th><th class="next">»</th></tr></thead><tbody><tr><td colspan="7"><span class="month">Jan</span><span class="month">Feb</span><span class="month">Mar</span><span class="month">Apr</span><span class="month">May</span><span class="month">Jun</span><span class="month focused">Jul</span><span class="month">Aug</span><span class="month">Sep</span><span class="month">Oct</span><span class="month">Nov</span><span class="month">Dec</span></td></tr></tbody><tfoot><tr><th colspan="7" class="today" style="display: none;">Today</th></tr><tr><th colspan="7" class="clear" style="display: none;">Clear</th></tr></tfoot></table></div><div class="datepicker-years" style="display: none;"><table class="table-condensed"><thead><tr><th colspan="7" class="datepicker-title" style="display: none;"></th></tr><tr><th class="prev">«</th><th colspan="5" class="datepicker-switch">2010-2019</th><th class="next">»</th></tr></thead><tbody><tr><td colspan="7"><span class="year old">2009</span><span class="year">2010</span><span class="year">2011</span><span class="year">2012</span><span class="year">2013</span><span class="year">2014</span><span class="year">2015</span><span class="year">2016</span><span class="year">2017</span><span class="year">2018</span><span class="year focused">2019</span><span class="year new">2020</span></td></tr></tbody><tfoot><tr><th colspan="7" class="today" style="display: none;">Today</th></tr><tr><th colspan="7" class="clear" style="display: none;">Clear</th></tr></tfoot></table></div><div class="datepicker-decades" style="display: none;"><table class="table-condensed"><thead><tr><th colspan="7" class="datepicker-title" style="display: none;"></th></tr><tr><th class="prev">«</th><th colspan="5" class="datepicker-switch">2000-2090</th><th class="next">»</th></tr></thead><tbody><tr><td colspan="7"><span class="decade old">1990</span><span class="decade">2000</span><span class="decade focused">2010</span><span class="decade">2020</span><span class="decade">2030</span><span class="decade">2040</span><span class="decade">2050</span><span class="decade">2060</span><span class="decade">2070</span><span class="decade">2080</span><span class="decade">2090</span><span class="decade new">2100</span></td></tr></tbody><tfoot><tr><th colspan="7" class="today" style="display: none;">Today</th></tr><tr><th colspan="7" class="clear" style="display: none;">Clear</th></tr></tfoot></table></div><div class="datepicker-centuries" style="display: none;"><table class="table-condensed"><thead><tr><th colspan="7" class="datepicker-title" style="display: none;"></th></tr><tr><th class="prev">«</th><th colspan="5" class="datepicker-switch">2000-2900</th><th class="next">»</th></tr></thead><tbody><tr><td colspan="7"><span class="century old">1900</span><span class="century focused">2000</span><span class="century">2100</span><span class="century">2200</span><span class="century">2300</span><span class="century">2400</span><span class="century">2500</span><span class="century">2600</span><span class="century">2700</span><span class="century">2800</span><span class="century">2900</span><span class="century new">3000</span></td></tr></tbody><tfoot><tr><th colspan="7" class="today" style="display: none;">Today</th></tr><tr><th colspan="7" class="clear" style="display: none;">Clear</th></tr></tfoot></table></div></div></div>
+            </div>
+            <!-- /.box-body -->
+            <div class="box-footer text-black">
+              <div class="row">
+                <div class="col-sm-6">
+                  <!-- Progress bars -->
+                  <div class="clearfix">
+                    <span class="pull-left">任务 #1</span>
+                    <small class="pull-right">90%</small>
+                  </div>
+                  <div class="progress xs">
+                    <div class="progress-bar progress-bar-green" style="width: 90%;"></div>
+                  </div>
+                  <div class="clearfix">
+                    <span class="pull-left">任务 #2</span>
+                    <small class="pull-right">70%</small>
+                  </div>
+                  <div class="progress xs">
+                    <div class="progress-bar progress-bar-green" style="width: 70%;"></div>
+                  </div>
+                </div>
+                <!-- /.col -->
+                <div class="col-sm-6">
+                  <div class="clearfix">
+                    <span class="pull-left">任务 #3</span>
+                    <small class="pull-right">60%</small>
+                  </div>
+                  <div class="progress xs">
+                    <div class="progress-bar progress-bar-green" style="width: 60%;"></div>
+                  </div>
+                  <div class="clearfix">
+                    <span class="pull-left">任务 #4</span>
+                    <small class="pull-right">40%</small>
+                  </div>
+                  <div class="progress xs">
+                    <div class="progress-bar progress-bar-green" style="width: 40%;"></div>
+                  </div>
+                </div>
+                <!-- /.col -->
+              </div>
+              <!-- /.row -->
+            </div>
+          </div>
+          <!-- /.box -->
+
+        </section>
+    </div>
+</div>
+<footer class="main-footer m0">
+	<div class="pull-right hidden-xs">当前版本： ${@Global.getConfig('productVersion')}</div>
+	&copy; ${@DateUtils.getYear()} ${@Global.getConfig('productName')} - Powered By <a href="http://jeesite.com">JeeSite</a>
+</footer>
+<% } %>
+<script src="${ctxStatic}/jquery/jquery-ui-sortable-1.12.1.min.js"></script>
+<script src="${ctxStatic}/echarts/4.2/echarts.min.js"></script>
+<script>
+$(function(){
+	$(window).resize(function(){
+		var footerHeight = $('.main-footer').outerHeight() || 0;
+		var windowHeight = $(window).height();
+		$('.content').css('min-height', windowHeight - footerHeight);
+		myChart1.resize(); myChart2.resize(); myChart3.resize();
+	}).resize();
+	$('a[data-toggle="tab"]').on('shown.bs.tab', function (e) {
+		$(window).resize();
+	});
+	$('.ui-sortable').sortable({
+		connectWith : '.ui-sortable',
+		handle      : '.box-header, .nav-tabs',
+		placeholder : 'sort-highlight',
+		forcePlaceholderSize: true,
+		zIndex : 999999
+	}).find('.box-header, .nav-tabs').css('cursor', 'move');
+});
+</script>
