@@ -1,0 +1,414 @@
+文件夹 PATH 列表
+卷序列号为 B05E-8679
+C:\USERS\LX\WORK2\WEB
+│  .classpath
+│  .project
+│  codestruct.txt
+│  pom.xml
+│  pom.xml.bak
+│  
+├─.settings
+│      .jsdtscope
+│      org.eclipse.core.resources.prefs
+│      org.eclipse.jdt.core.prefs
+│      org.eclipse.m2e.core.prefs
+│      org.eclipse.wst.common.component
+│      org.eclipse.wst.common.project.facet.core.xml
+│      org.eclipse.wst.jsdt.ui.superType.container
+│      org.eclipse.wst.jsdt.ui.superType.name
+│      org.eclipse.wst.validation.prefs
+│      
+├─bin
+│  │  docker-bulid.bat
+│  │  docker-bulid.sh
+│  │  init-data.bat
+│  │  init-data.sh
+│  │  package.bat
+│  │  package.sh
+│  │  run-tomcat.bat
+│  │  run-tomcat.sh
+│  │  run-web.bat
+│  │  run-web.sh
+│  │  
+│  └─docker
+│          app.yml
+│          Dockerfile
+│          
+├─db
+│  │  test.erm
+│  │  
+│  ├─h2
+│  │      test.sql
+│  │      
+│  ├─mssql
+│  │      test.sql
+│  │      
+│  ├─mysql
+│  │      create_user.sql
+│  │      test.sql
+│  │      
+│  ├─oracle
+│  │      create_user.sql
+│  │      test.sql
+│  │      
+│  └─postgresql
+│          test.sql
+│          
+├─src
+│  ├─main
+│  │  ├─java
+│  │  │  └─com
+│  │  │      └─jeesite
+│  │  │          └─modules
+│  │  │              │  Application.java
+│  │  │              │  
+│  │  │              ├─employee
+│  │  │              │  ├─dao
+│  │  │              │  │      TyuangongDao.java
+│  │  │              │  │      
+│  │  │              │  ├─entity
+│  │  │              │  │      Tyuangong.java
+│  │  │              │  │      
+│  │  │              │  ├─service
+│  │  │              │  │      TyuangongService.java
+│  │  │              │  │      
+│  │  │              │  └─web
+│  │  │              │          TyuangongController.java
+│  │  │              │          
+│  │  │              ├─t
+│  │  │              │  ├─dao
+│  │  │              │  │      TchuqinDao.java
+│  │  │              │  │      TgongziDao.java
+│  │  │              │  │      TqingjiashenqingDao.java
+│  │  │              │  │      
+│  │  │              │  ├─entity
+│  │  │              │  │      Tchuqin.java
+│  │  │              │  │      Tgongzi.java
+│  │  │              │  │      Tqingjiashenqing.java
+│  │  │              │  │      
+│  │  │              │  ├─service
+│  │  │              │  │      TchuqinService.java
+│  │  │              │  │      TgongziService.java
+│  │  │              │  │      TqingjiashenqingService.java
+│  │  │              │  │      
+│  │  │              │  └─web
+│  │  │              │          TchuqinController.java
+│  │  │              │          TgongziController.java
+│  │  │              │          TqingjiashenqingController.java
+│  │  │              │          
+│  │  │              └─test
+│  │  │                  ├─dao
+│  │  │                  │      TestDataChildDao.java
+│  │  │                  │      TestDataDao.java
+│  │  │                  │      TestTreeDao.java
+│  │  │                  │      
+│  │  │                  ├─db
+│  │  │                  │      InitTestData.java
+│  │  │                  │      
+│  │  │                  ├─entity
+│  │  │                  │      TestData.java
+│  │  │                  │      TestDataChild.java
+│  │  │                  │      TestTree.java
+│  │  │                  │      
+│  │  │                  ├─service
+│  │  │                  │      TestDataService.java
+│  │  │                  │      TestTreeService.java
+│  │  │                  │      
+│  │  │                  └─web
+│  │  │                          DemoController.java
+│  │  │                          TestDataController.java
+│  │  │                          TestTreeController.java
+│  │  │                          
+│  │  ├─resources
+│  │  │  ├─config
+│  │  │  │      application.yml
+│  │  │  │      beetl.properties
+│  │  │  │      logback-spring.xml
+│  │  │  │      ueditor.json
+│  │  │  │      
+│  │  │  ├─db
+│  │  │  │  └─create
+│  │  │  │      ├─h2
+│  │  │  │      │      test.sql
+│  │  │  │      │      
+│  │  │  │      ├─mssql
+│  │  │  │      │      test.sql
+│  │  │  │      │      
+│  │  │  │      ├─mysql
+│  │  │  │      │      test.sql
+│  │  │  │      │      
+│  │  │  │      ├─oracle
+│  │  │  │      │      test.sql
+│  │  │  │      │      
+│  │  │  │      └─postgresql
+│  │  │  │              test.sql
+│  │  │  │              
+│  │  │  ├─mappings
+│  │  │  │  └─modules
+│  │  │  │      ├─employee
+│  │  │  │      │      TgongziDao.xml
+│  │  │  │      │      TyuangongDao.xml
+│  │  │  │      │      
+│  │  │  │      ├─t
+│  │  │  │      │      TchuqinDao.xml
+│  │  │  │      │      TgongziDao.xml
+│  │  │  │      │      TqingjiashenqingDao.xml
+│  │  │  │      │      
+│  │  │  │      └─test
+│  │  │  │              TestDataChildDao.xml
+│  │  │  │              TestDataDao.xml
+│  │  │  │              TestTreeDao.xml
+│  │  │  │              
+│  │  │  ├─static
+│  │  │  │  │  favicon.png
+│  │  │  │  │  
+│  │  │  │  └─common
+│  │  │  │          common.css
+│  │  │  │          common.js
+│  │  │  │          
+│  │  │  └─views
+│  │  │      ├─modules
+│  │  │      │  ├─demo
+│  │  │      │  │      demoDataGridEditGrid.html
+│  │  │      │  │      demoDataGridGroupGrid.html
+│  │  │      │  │      demoDataGridMultiGrid.html
+│  │  │      │  │      demoFormEditForm.html
+│  │  │      │  │      demoFormLayoutForm.html
+│  │  │      │  │      demoFormTableForm.html
+│  │  │      │  │      demoFormTabPage.html
+│  │  │      │  │      
+│  │  │      │  ├─employee
+│  │  │      │  │      tyuangongForm.html
+│  │  │      │  │      tyuangongList.html
+│  │  │      │  │      
+│  │  │      │  ├─t
+│  │  │      │  │      tchuqinForm.html
+│  │  │      │  │      tchuqinList.html
+│  │  │      │  │      tgongziForm.html
+│  │  │      │  │      tgongziList.html
+│  │  │      │  │      tqingjiashenqingForm.html
+│  │  │      │  │      tqingjiashenqingList.html
+│  │  │      │  │      
+│  │  │      │  └─test
+│  │  │      │          testDataForm.html
+│  │  │      │          testDataList.html
+│  │  │      │          testTreeForm.html
+│  │  │      │          testTreeList.html
+│  │  │      │          
+│  │  │      └─themes
+│  │  │          └─default
+│  │  │              └─modules
+│  │  │                  └─sys
+│  │  │                          sysDesktop.html
+│  │  │                          sysLogin.html
+│  │  │                          
+│  │  └─webapp
+│  │      └─WEB-INF
+│  │          │  startup.bat
+│  │          │  startup.sh
+│  │          │  web.xml
+│  │          │  
+│  │          └─classes
+│  │              ├─com
+│  │              │  └─jeesite
+│  │              │      └─modules
+│  │              │          │  Application.class
+│  │              │          │  
+│  │              │          ├─employee
+│  │              │          │  ├─dao
+│  │              │          │  │      TyuangongDao.class
+│  │              │          │  │      
+│  │              │          │  ├─entity
+│  │              │          │  │      Tyuangong.class
+│  │              │          │  │      
+│  │              │          │  ├─service
+│  │              │          │  │      TyuangongService.class
+│  │              │          │  │      
+│  │              │          │  └─web
+│  │              │          │          TyuangongController.class
+│  │              │          │          
+│  │              │          ├─t
+│  │              │          │  ├─dao
+│  │              │          │  │      TchuqinDao.class
+│  │              │          │  │      TgongziDao.class
+│  │              │          │  │      TqingjiashenqingDao.class
+│  │              │          │  │      
+│  │              │          │  ├─entity
+│  │              │          │  │      Tchuqin.class
+│  │              │          │  │      Tgongzi.class
+│  │              │          │  │      Tqingjiashenqing.class
+│  │              │          │  │      
+│  │              │          │  ├─service
+│  │              │          │  │      TchuqinService.class
+│  │              │          │  │      TgongziService.class
+│  │              │          │  │      TqingjiashenqingService.class
+│  │              │          │  │      
+│  │              │          │  └─web
+│  │              │          │          TchuqinController.class
+│  │              │          │          TgongziController.class
+│  │              │          │          TqingjiashenqingController.class
+│  │              │          │          
+│  │              │          └─test
+│  │              │              ├─dao
+│  │              │              │      TestDataChildDao.class
+│  │              │              │      TestDataDao.class
+│  │              │              │      TestTreeDao.class
+│  │              │              │      
+│  │              │              ├─db
+│  │              │              │      InitTestData.class
+│  │              │              │      
+│  │              │              ├─entity
+│  │              │              │      TestData.class
+│  │              │              │      TestDataChild.class
+│  │              │              │      TestTree.class
+│  │              │              │      
+│  │              │              ├─service
+│  │              │              │      TestDataService.class
+│  │              │              │      TestTreeService.class
+│  │              │              │      
+│  │              │              └─web
+│  │              │                      DemoController.class
+│  │              │                      TestDataController.class
+│  │              │                      TestTreeController.class
+│  │              │                      
+│  │              ├─config
+│  │              │      application.yml
+│  │              │      beetl.properties
+│  │              │      logback-spring.xml
+│  │              │      ueditor.json
+│  │              │      
+│  │              ├─db
+│  │              │  └─create
+│  │              │      ├─h2
+│  │              │      │      test.sql
+│  │              │      │      
+│  │              │      ├─mssql
+│  │              │      │      test.sql
+│  │              │      │      
+│  │              │      ├─mysql
+│  │              │      │      test.sql
+│  │              │      │      
+│  │              │      ├─oracle
+│  │              │      │      test.sql
+│  │              │      │      
+│  │              │      └─postgresql
+│  │              │              test.sql
+│  │              │              
+│  │              ├─logs
+│  │              │      debug.2021-01-07.0.log.zip
+│  │              │      debug.2021-01-08.0.log.zip
+│  │              │      debug.log
+│  │              │      error.log
+│  │              │      
+│  │              ├─mappings
+│  │              │  └─modules
+│  │              │      ├─employee
+│  │              │      │      TgongziDao.xml
+│  │              │      │      TyuangongDao.xml
+│  │              │      │      
+│  │              │      ├─t
+│  │              │      │      TchuqinDao.xml
+│  │              │      │      TgongziDao.xml
+│  │              │      │      TqingjiashenqingDao.xml
+│  │              │      │      
+│  │              │      └─test
+│  │              │              TestDataChildDao.xml
+│  │              │              TestDataDao.xml
+│  │              │              TestTreeDao.xml
+│  │              │              
+│  │              ├─static
+│  │              │  │  favicon.png
+│  │              │  │  
+│  │              │  └─common
+│  │              │          common.css
+│  │              │          common.js
+│  │              │          
+│  │              └─views
+│  │                  ├─modules
+│  │                  │  ├─demo
+│  │                  │  │      demoDataGridEditGrid.html
+│  │                  │  │      demoDataGridGroupGrid.html
+│  │                  │  │      demoDataGridMultiGrid.html
+│  │                  │  │      demoFormEditForm.html
+│  │                  │  │      demoFormLayoutForm.html
+│  │                  │  │      demoFormTableForm.html
+│  │                  │  │      demoFormTabPage.html
+│  │                  │  │      
+│  │                  │  ├─employee
+│  │                  │  │      tyuangongForm.html
+│  │                  │  │      tyuangongList.html
+│  │                  │  │      
+│  │                  │  ├─t
+│  │                  │  │      tadminForm.html
+│  │                  │  │      tadminList.html
+│  │                  │  │      tchuqinForm.html
+│  │                  │  │      tchuqinList.html
+│  │                  │  │      tgongziForm.html
+│  │                  │  │      tgongziList.html
+│  │                  │  │      tqingjiashenqingForm.html
+│  │                  │  │      tqingjiashenqingList.html
+│  │                  │  │      
+│  │                  │  └─test
+│  │                  │          testDataForm.html
+│  │                  │          testDataList.html
+│  │                  │          testTreeForm.html
+│  │                  │          testTreeList.html
+│  │                  │          
+│  │                  └─themes
+│  │                      └─default
+│  │                          └─modules
+│  │                              └─sys
+│  │                                      sysDesktop.html
+│  │                                      sysLogin.html
+│  │                                      
+│  └─test
+│      └─java
+│          │  logback-test.xml
+│          │  
+│          └─com
+│              └─jeesite
+│                  └─test
+│                          InitData.java
+│                          InsertBatchTest.java
+│                          MultiDataSourceTest.java
+│                          RememberMeKeyGen.java
+│                          
+└─target
+    ├─generated-sources
+    │  └─annotations
+    ├─generated-test-sources
+    │  └─test-annotations
+    ├─m2e-wtp
+    │  └─web-resources
+    │      └─META-INF
+    │          │  MANIFEST.MF
+    │          │  
+    │          └─maven
+    │              └─com.jeesite
+    │                  └─jeesite-web
+    │                          pom.properties
+    │                          pom.xml
+    │                          
+    ├─maven-status
+    │  └─maven-compiler-plugin
+    │      ├─compile
+    │      │  └─default-compile
+    │      │          createdFiles.lst
+    │      │          inputFiles.lst
+    │      │          
+    │      └─testCompile
+    │          └─default-testCompile
+    │                  createdFiles.lst
+    │                  inputFiles.lst
+    │                  
+    └─test-classes
+        └─com
+            └─jeesite
+                └─test
+                        InitData.class
+                        InsertBatchTest$1.class
+                        InsertBatchTest.class
+                        MultiDataSourceTest$1.class
+                        MultiDataSourceTest.class
+                        RememberMeKeyGen.class
+                        

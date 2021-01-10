@@ -1,0 +1,72 @@
+<% layout('/layouts/default.html', {title: 't_chuqin管理', libs: ['dataGrid']}){ %>
+<div class="main-content">
+	<div class="box box-main">
+		<div class="box-header">
+			<div class="box-title">
+				<i class="fa icon-notebook"></i> ${text('t_chuqin管理')}
+			</div>
+			<div class="box-tools pull-right">
+				<a href="#" class="btn btn-default" id="btnSearch" title="${text('查询')}"><i class="fa fa-filter"></i> ${text('查询')}</a>
+				<% if(hasPermi('t:tchuqin:edit')){ %>
+					<a href="${ctx}/t/tchuqin/form" class="btn btn-default btnTool" title="${text('新增t_chuqin')}"><i class="fa fa-plus"></i> ${text('新增')}</a>
+				<% } %>
+				<a href="#" class="btn btn-default" id="btnSetting" title="${text('设置')}"><i class="fa fa-navicon"></i></a>
+			</div>
+		</div>
+		<div class="box-body">
+			<#form:form id="searchForm" model="${tchuqin}" action="${ctx}/t/tchuqin/listData" method="post" class="form-inline hide"
+					data-page-no="${parameter.pageNo}" data-page-size="${parameter.pageSize}" data-order-by="${parameter.orderBy}">
+				<div class="form-group">
+					<label class="control-label">${text('月份')}：</label>
+					<div class="control-inline">
+						<#form:input path="yuefen" maxlength="55" class="form-control width-120"/>
+					</div>
+				</div>
+				<div class="form-group">
+					<label class="control-label">${text('出勤天数')}：</label>
+					<div class="control-inline">
+						<#form:input path="tianshu" class="form-control width-120"/>
+					</div>
+				</div>
+				<div class="form-group">
+					<label class="control-label">${text('员工号')}：</label>
+					<div class="control-inline">
+						<#form:input path="eid" maxlength="55" class="form-control width-120"/>
+					</div>
+				</div>
+				<div class="form-group">
+					<button type="submit" class="btn btn-primary btn-sm">${text('查询')}</button>
+					<button type="reset" class="btn btn-default btn-sm">${text('重置')}</button>
+				</div>
+			</#form:form>
+			<table id="dataGrid"></table>
+			<div id="dataGridPage"></div>
+		</div>
+	</div>
+</div>
+<% } %>
+<script>
+// 初始化DataGrid对象
+$('#dataGrid').dataGrid({
+	searchForm: $("#searchForm"),
+	columnModel: [
+		{header:'${text("月份")}', name:'yuefen', index:'a.yuefen', width:150, align:"left", frozen:true, formatter: function(val, obj, row, act){
+			return '<a href="${ctx}/t/tchuqin/form?id='+row.id+'" class="btnList" data-title="${text("编辑t_chuqin")}">'+(val||row.id)+'</a>';
+		}},
+		{header:'${text("出勤天数")}', name:'tianshu', index:'a.tianshu', width:150, align:"center"},
+		{header:'${text("员工号")}', name:'eid', index:'a.e_id', width:150, align:"left"},
+		{header:'${text("操作")}', name:'actions', width:120, sortable:false, title:false, formatter: function(val, obj, row, act){
+			var actions = [];
+			<% if(hasPermi('t:tchuqin:edit')){ %>
+				actions.push('<a href="${ctx}/t/tchuqin/form?id='+row.id+'" class="btnList" title="${text("编辑t_chuqin")}"><i class="fa fa-pencil"></i></a>&nbsp;');
+				actions.push('<a href="${ctx}/t/tchuqin/delete?id='+row.id+'" class="btnList" title="${text("删除t_chuqin")}" data-confirm="${text("确认要删除该t_chuqin吗？")}"><i class="fa fa-trash-o"></i></a>&nbsp;');
+			<% } %>
+			return actions.join('');
+		}}
+	],
+	// 加载成功后执行事件
+	ajaxSuccess: function(data){
+		
+	}
+});
+</script>
